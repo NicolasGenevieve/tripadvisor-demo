@@ -1,4 +1,11 @@
 /* ======================================= */
+/* ================ ROOTS ================ */
+
+:root {
+  --grey: rgb(37, 37, 37);
+}
+
+/* ======================================= */
 /* =============== GENERAL =============== */
 
 body,
@@ -9,8 +16,18 @@ button {
 
 .container {
   width: 1096px;
-  border: 2px solid pink;
+  /* border: 2px solid pink; */
   margin: 0 auto;
+}
+
+.element {
+  overflow: scroll; /* ou auto si tu veux que ça s'affiche seulement si besoin */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer / Edge */
+}
+
+.element::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
 
 /* ======================================= */
@@ -19,10 +36,13 @@ button {
 
 header {
   background-color: white;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 60px;
   display: flex;
   align-items: center;
+  position: sticky;
+  top: 0px;
+  z-index: 1000;
 }
 
 header img {
@@ -69,7 +89,7 @@ header img {
   background-color: black;
   border-radius: 30px;
   border: none;
-  padding: 8px 16px;
+  padding: 12px 16px;
   cursor: pointer;
 }
 /* ======================================= */
@@ -80,8 +100,7 @@ header img {
 /* -------------- SECTION 1 -------------- */
 
 .section1 {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  padding: 30px 0;
 }
 
 h1 {
@@ -105,7 +124,7 @@ h1 {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 20px;
+  padding: 10px 0px;
 }
 
 .buttonmain {
@@ -123,6 +142,7 @@ h1 {
 .buttonmain:hover {
   background-color: black;
   color: white;
+  cursor: pointer;
 }
 
 .imain {
@@ -133,26 +153,69 @@ h1 {
 /* -------------- SECTION 3 -------------- */
 
 .section3 {
+  height: 435px;
   display: flex;
   justify-content: space-between;
   gap: 3px;
-  margin-bottom: 40px;
+  overflow: hidden;
+  padding: 20px 0;
 }
 
-.imggauche {
-  width: 615px;
+.divgauchesection3 {
+  flex: 1, 8;
+  position: relative;
 }
 
-.divdroite {
+.divgauchesection3 img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.buttondivgauchesection3 {
+  position: absolute;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  left: 20px;
+  bottom: 20px;
+  padding: 15px 15px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+.buttondivgauchesection3:hover {
+  background-color: var(--grey);
+}
+
+.divdroitesection3 {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 3px;
-  flex: 1;
 }
 
-.imgdroite {
-  height: 214px;
+.divdroitesection3haut,
+.divdroitesection3bas {
+  flex: 1;
+  min-height: 0;
+}
+
+.divdroitesection3haut img,
+.divdroitesection3bas img {
+  height: 100%;
+  width: 100%;
   object-fit: cover;
+}
+
+.divgauchesection3 img:hover,
+.divdroitesection3haut img:hover,
+.divdroitesection3bas img:hover {
+  filter: grayscale(10%) brightness(90%);
+  cursor: pointer;
 }
 
 /* ======================================= */
@@ -161,9 +224,40 @@ h1 {
 .section4 {
   display: flex;
   justify-content: space-between;
+  padding: 5px 0;
 }
 
-.divgauchesection4 {
+.div-left-section4 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.link-section4 {
+  font-size: 12px;
+  background-color: none;
+  border: none;
+  cursor: pointer;
+}
+
+.link-section4:hover {
+  color: var(--grey);
+  text-decoration: underline;
+}
+
+.div-right-section4 {
+  font-size: 12px;
+}
+
+/* ======================================= */
+/* -------------- SECTION 5 -------------- */
+
+.section5 {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 0;
+}
+
+.divgauchesection5 {
   display: flex;
   flex-direction: column;
   max-width: 570px;
@@ -175,12 +269,12 @@ h2 {
   margin-bottom: 20px;
 }
 
-.psection4 {
+.psection5 {
   font-size: 20px;
   line-height: 1.2;
 }
 
-.divdroitesection4 {
+.divdroitesection5 {
   display: flex;
   flex-direction: column;
   width: 430px;
@@ -221,9 +315,228 @@ h3 {
   cursor: pointer;
 }
 
-.imgsection4 {
+.buttonh3:hover {
+  background-color: var(--grey);
+}
+
+.imgsection5 {
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+
+/* ======================================= */
+/* -------------- SECTION 6 - 7 -------------- */
+
+.section6 {
+  padding: 30px 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.section7 {
+  display: flex;
+  /* background-color: blue; */
+  height: 340px;
+  margin-bottom: 20px;
+}
+
+.div-left-section7 {
+  display: flex;
+  flex-direction: column;
+  /* background-color: green; */
+  flex: 1;
+  gap: 20px;
+  line-height: 1.3;
+  padding-right: 50px;
+}
+
+h5 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.p-div-left-section7 {
+  font-size: 18px;
+}
+
+.a-div-left-section7 {
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+}
+
+.div-right-section7 {
+  display: flex;
+  /* background-color: orange; */
+  flex: 3;
+  gap: 10px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
+.div-scroll-section7 {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  /* background-color: red; */
+  width: 260px;
+  justify-content: flex-start;
+}
+
+.div-img-scroll-section7 {
+  display: flex;
+  overflow: hidden;
+  height: 180px;
+  background-color: yellow;
+  position: relative;
+}
+
+.div-img-scroll-section7 img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.main-img:hover {
+  cursor: pointer;
+  filter: grayscale(10%) brightness(90%);
+}
+
+.div-heart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.div-heart:hover {
+  cursor: pointer;
+  background-color: lightgray;
+}
+
+.div-label {
+  display: flex;
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  height: 40px;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.div-description-scroll-section7 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* background-color: pink; */
+  padding: 10px 5px;
+  max-height: 110px;
+}
+
+h6 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+h6:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.div-rate {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.div-icon {
+  display: flex;
+  justify-content: space-between;
+  width: 70px;
+  gap: 2px;
+}
+
+.dot-rate {
+  color: #04aa6c;
+  font-size: 12px;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* ======================================= */
+/* -------------- SECTION 8 -------------- */
+
+.section8 {
+  display: flex;
+  height: 430px;
+  gap: 25px;
+  margin-bottom: 100px;
+  /* background-color: blue; */
+}
+
+.div-section8 {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  /* background-color: green; */
+}
+
+.div-img-section8 {
+  display: flex;
+  height: 270px;
+  /* background-color: yellow; */
+  overflow: hidden;
+}
+
+.div-img-section8 img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.div-description-section8 {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  gap: 10px;
+  max-height: 160px;
+}
+
+h7 {
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.p-section8 {
+  font-size: 14px;
+}
+
+.div-brand {
+  display: flex;
+  height: 25px;
+  align-items: center;
+  gap: 10px;
+}
+
+.div-brand img {
+  object-fit: cover;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 /* ======================================= */
@@ -231,6 +544,23 @@ h3 {
 /* ======================================= */
 
 .footer {
-  margin-top: 100px;
-  padding-top: 100px;
+  background-color: #faf1ed;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.div-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  height: 45px;
+  overflow: hidden;
+}
+
+.div-footer img {
+  height: 45px;
+  width: auto;
 }
