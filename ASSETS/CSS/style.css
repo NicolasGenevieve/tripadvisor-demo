@@ -230,6 +230,7 @@ h1 {
 .div-left-section4 {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .link-section4 {
@@ -246,6 +247,10 @@ h1 {
 
 .div-right-section4 {
   font-size: 12px;
+}
+
+.icon-section4 {
+  font-size: 10px;
 }
 
 /* ======================================= */
