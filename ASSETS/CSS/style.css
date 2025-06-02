@@ -15,9 +15,10 @@ button {
 }
 
 .container {
-  width: 1096px;
+  max-width: 1140px;
   /* border: 2px solid pink; */
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 .element {
@@ -37,15 +38,15 @@ button {
 header {
   background-color: white;
   /* border: 1px solid red; */
-  height: 60px;
-  display: flex;
-  align-items: center;
+  height: 70px;
+  padding-top: 10px;
   position: sticky;
+  width: 100%;
   top: 0px;
   z-index: 1000;
 }
 
-header img {
+.brand img {
   height: 50px;
 }
 
@@ -53,19 +54,19 @@ header img {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
+  height: 100%;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .iconnav {
-  font-size: 20px;
-  padding: 5px;
+  font-size: 23px;
+  padding: 0px;
 }
 
 .navdiv {
@@ -78,7 +79,7 @@ header img {
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  padding: 5px;
+  gap: 5px;
   cursor: pointer;
 }
 
@@ -92,6 +93,11 @@ header img {
   padding: 12px 16px;
   cursor: pointer;
 }
+
+.hiddenmobile {
+  display: none;
+}
+
 /* ======================================= */
 /* --------------- MAIN ------------------ */
 /* ======================================= */
@@ -122,7 +128,6 @@ h1 {
 
 .section2 {
   display: flex;
-  justify-content: center;
   gap: 10px;
   padding: 10px 0px;
 }
@@ -133,10 +138,21 @@ h1 {
   border: 1px solid black;
   border-radius: 15px;
   padding: 14px 20px;
-  height: 70px;
-  min-width: 174px;
+  width: calc((100% - 50px) / 6);
   font-weight: bold;
   line-height: 1.2;
+}
+
+.pbuttonmain {
+  margin-right: 10px;
+}
+
+.iconmainnav {
+  font-size: 24px;
+}
+
+.hidden {
+  display: none;
 }
 
 .buttonmain:hover {
@@ -463,14 +479,12 @@ h6:hover {
 
 .div-icon {
   display: flex;
-  justify-content: space-between;
-  width: 70px;
-  gap: 2px;
+  width: fit-content;
 }
 
 .dot-rate {
   color: #04aa6c;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .description {
@@ -568,4 +582,45 @@ h7 {
 .div-footer img {
   height: 45px;
   width: auto;
+}
+
+@media (max-width: 1184px) {
+  .section2 {
+    flex-wrap: wrap;
+  }
+  .buttonmain {
+    width: calc((100% - 30px) / 4);
+  }
+  .hidden {
+    display: flex;
+  }
+}
+
+@media (max-width: 1024px) {
+  .disapear {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .section2 {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    scrollbar-width: none;
+  }
+  .buttonmain {
+    width: fit-content;
+    flex-shrink: 0;
+  }
+
+  .disapearmobile {
+    display: none;
+  }
+
+  .hiddenmobile {
+    display: flex;
+  }
+  .brand img {
+    height: 40px;
+  }
 }
