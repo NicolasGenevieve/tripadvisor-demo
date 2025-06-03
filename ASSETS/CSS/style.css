@@ -121,6 +121,7 @@ h1 {
 .ph1 {
   margin-top: 15px;
   font-size: 14px;
+  line-height: 1.3;
 }
 
 /* ======================================= */
@@ -130,6 +131,7 @@ h1 {
   display: flex;
   gap: 10px;
   padding: 10px 0px;
+  /* border: 2px solid green; */
 }
 
 .buttonmain {
@@ -175,10 +177,11 @@ h1 {
   gap: 3px;
   overflow: hidden;
   padding: 20px 0;
+  /* border: 2px solid blue; */
 }
 
 .divgauchesection3 {
-  flex: 1, 8;
+  flex: 1.8;
   position: relative;
 }
 
@@ -240,7 +243,8 @@ h1 {
 .section4 {
   display: flex;
   justify-content: space-between;
-  padding: 5px 0;
+  padding: 10px 0;
+  /* border: 2px solid red; */
 }
 
 .div-left-section4 {
@@ -276,12 +280,16 @@ h1 {
   display: flex;
   justify-content: space-between;
   padding: 30px 0;
+  /* border: 2px solid green; */
+  overflow: hidden;
 }
 
 .divgauchesection5 {
   display: flex;
   flex-direction: column;
   max-width: 570px;
+  margin-bottom: 20px;
+  /* border: 2px solid blue; */
 }
 
 h2 {
@@ -299,6 +307,9 @@ h2 {
   display: flex;
   flex-direction: column;
   width: 430px;
+  border-radius: 20px;
+  overflow: hidden;
+  /* border: 2px solid blue; */
 }
 
 .divdroiterose {
@@ -307,9 +318,7 @@ h2 {
   flex-direction: column;
   justify-content: flex-start;
   gap: 20px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  height: 280px;
+  height: 300px;
   padding: 45px;
 }
 
@@ -341,8 +350,14 @@ h3 {
 }
 
 .imgsection5 {
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  height: 192px;
+  /* border: 2px solid pink; */
+}
+
+.imgsection5 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* ======================================= */
@@ -356,19 +371,20 @@ h3 {
 
 .section7 {
   display: flex;
-  /* background-color: blue; */
-  height: 340px;
+  /* border: 2px blue solid; */
+  min-height: 340px;
   margin-bottom: 20px;
 }
 
 .div-left-section7 {
   display: flex;
   flex-direction: column;
-  /* background-color: green; */
+  /* border: 2px solid green; */
   flex: 1;
   gap: 20px;
   line-height: 1.3;
   padding-right: 50px;
+  padding-bottom: 20px;
 }
 
 h5 {
@@ -388,7 +404,7 @@ h5 {
 
 .div-right-section7 {
   display: flex;
-  /* background-color: orange; */
+  /* border: 2px solid orange; */
   flex: 3;
   gap: 10px;
   flex-wrap: nowrap;
@@ -400,7 +416,7 @@ h5 {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  /* background-color: red; */
+  /* border: 2px solid red;*/
   width: 260px;
   justify-content: flex-start;
 }
@@ -500,7 +516,7 @@ h6:hover {
   height: 430px;
   gap: 25px;
   margin-bottom: 100px;
-  /* background-color: blue; */
+  /* border: 2px solid blue; */
 }
 
 .div-section8 {
@@ -600,8 +616,37 @@ h7 {
   .disapear {
     display: none;
   }
+  .section5 {
+    flex-direction: column;
+  }
+  .divgauchesection5 {
+    max-width: 100vw;
+    padding-bottom: 20px;
+  }
+  .divdroitesection5 {
+    flex-direction: row;
+    width: 100vw;
+    width: 100%;
+    height: 300px;
+  }
+  .divdroiterose {
+    height: 100%;
+    flex: 1;
+  }
+  .imgsection5 {
+    height: 100%;
+    flex: 1;
+  }
+  .section8 {
+    flex-wrap: nowrap;
+    overflow: hidden;
+    overflow-x: scroll;
+  }
+  .div-section8 {
+    flex: 0 0 auto;
+    width: 60vw;
+  }
 }
-
 @media (max-width: 768px) {
   .section2 {
     flex-wrap: nowrap;
@@ -622,5 +667,38 @@ h7 {
   }
   .brand img {
     height: 40px;
+  }
+  h1 {
+    font-size: 32px;
+  }
+  .divdroitesection3 {
+    display: none;
+  }
+  .section3 {
+    margin-left: -20px;
+    width: 100vw;
+  }
+  .divgauchesection3 {
+    flex: 1;
+  }
+  .section4 {
+    display: none;
+  }
+  .psection5 {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+  .divdroitesection5 {
+    flex-direction: column;
+    height: 450px;
+  }
+  .section7 {
+    flex-direction: column;
+  }
+  .div-scroll-section7 {
+    width: calc(66.6667% - 20px);
+  }
+  .div-img-scroll-section7 {
+    height: 300px;
   }
 }
