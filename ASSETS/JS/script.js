@@ -9,9 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
     body.classList.add("disable-scroll");
   });
 
-  modal.addEventListener("click", () => {
-    modal.classList.add("display-none");
-    body.classList.remove("disable-scroll");
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.classList.add("display-none");
+      body.classList.remove("disable-scroll");
+    }
   });
 
   window.addEventListener("scroll", () => {
