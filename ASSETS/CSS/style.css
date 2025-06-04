@@ -43,7 +43,11 @@ header {
   position: sticky;
   width: 100%;
   top: 0px;
-  z-index: 1000;
+  z-index: 500;
+}
+
+.border-bottom-grey {
+  border-bottom: 1px solid rgb(0, 0, 0, 0.2);
 }
 
 .brand img {
@@ -596,9 +600,39 @@ h7 {
 }
 
 .div-footer img {
-  height: 45px;
-  width: auto;
+  width: 40px;
 }
+
+.div-footer img:hover {
+  rotate: 0.5turn;
+}
+
+/* ======================================= */
+/* -------------- MODAL ------------------ */
+/* ======================================= */
+
+.modal-overlay {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 100vh;
+  width: 100vw;
+  z-index: 600;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.display-none {
+  display: none;
+}
+
+.disable-scroll {
+  overflow: hidden;
+}
+
+/* ============================================================================ */
+/* ---------------------------------- MEDIA ----------------------------------- */
+/* ============================================================================ */
 
 @media (max-width: 1184px) {
   .section2 {
