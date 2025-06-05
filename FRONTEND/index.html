@@ -44,6 +44,7 @@
     <!-- =============== SCRIPTS ================ -->
 
     <script src="ASSETS/JS/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
   </head>
 
   <!-- ================================================== -->
@@ -801,7 +802,7 @@
         <div>
           <div class="cross"><i class="icon-times"></i></div>
           <div class="form-title"><p>Formulaire de contact</p></div>
-          <form>
+          <form id="contactForm">
             <input
               class="input-class"
               type="text"
@@ -812,8 +813,8 @@
             <input
               class="input-class"
               type="text"
-              name="name"
-              id="name"
+              name="lastname"
+              id="lastname"
               placeholder="Nom"
             />
             <input

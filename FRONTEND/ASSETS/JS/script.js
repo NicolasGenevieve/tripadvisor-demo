@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.querySelector(".modal-overlay");
   const body = document.querySelector("body");
   const header = document.querySelector("header");
+  const cross = document.querySelector(".cross");
 
   buttonnav.addEventListener("click", () => {
     modal.classList.remove("display-none");
@@ -25,6 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  cross.addEventListener("click", () => {
+    modal.classList.add("display-none");
+    body.classList.remove("disable-scroll");
+  });
+
   const easterEgg = document.querySelector("#easteregg");
   easterEgg.addEventListener("click", () => {
     const src = easterEgg.getAttribute("src");
@@ -34,4 +40,20 @@ document.addEventListener("DOMContentLoaded", () => {
       easterEgg.setAttribute("src", "./ASSETS/IMG/favicon-tripadvisor.svg");
     }
   });
+
+  document
+    .querySelector("#contactForm")
+    .addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const data = {
+        firstname: document.querySelector("#firstname").value,
+        lastname: document.querySelector("#lastname").value,
+        email: document.querySelector("#email").value,
+        message: document.querySelector("#message").value,
+      };
+
+      const response = await axios.post("http://localhost:3000/form", data);
+      console.log(response);
+    });
 });
