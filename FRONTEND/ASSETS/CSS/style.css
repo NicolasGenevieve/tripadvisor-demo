@@ -776,7 +776,12 @@ form {
     flex: 0 0 auto;
     width: 60vw;
   }
+  .div-label {
+    max-height: 20px;
+    max-width: 20px;
+  }
 }
+
 @media (max-width: 768px) {
   .section2 {
     flex-wrap: nowrap;
