@@ -53,7 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
         message: document.querySelector("#message").value,
       };
 
-      const response = await axios.post("http://localhost:3000/form", data);
+      const response = await axios.post(
+        "https://site--tripadvisor-demo--7c4ycv44wqj9.code.run/form",
+        data
+      );
       console.log(response);
     });
 });
