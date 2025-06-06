@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+  <!-- ================================================== -->
+  <!-- ---------------------- HEAD  --------------------- -->
+  <!-- ================================================== -->
+
+  <head>
+    <!-- =============== GENERAL ================ -->
+
+    <meta charset="UTF-8" />
+    <!-- <meta http-equiv="refresh" content="30" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ============ REFERENCEMENT ============= -->
+
+    <title>TripAdvisor 🌈</title>
+    <meta name="description" content="TripAdvisor - Explorez Paris" />
+    <meta name="keywords" content="TripAdvisor, Paris" />
+    <meta name="author" content="Nicolas Geneviève" />
+
+    <!-- ============= CONNECTIONS ============== -->
+
+    <script
+      src="https://kit.fontawesome.com/ae76813fb0.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- ============== STYLE CSS =============== -->
+
+    <link rel="stylesheet" href="ASSETS/CSS/reset.css" />
+    <link rel="stylesheet" href="ASSETS/CSS/style.css" />
+    <link rel="stylesheet" href="ASSETS/CSS/fonts.css" />
+    <link rel="stylesheet" href="ASSETS/CSS/icons.css" />
+
+    <!-- =============== FAVICON ================ -->
+
+    <link
+      rel="shortcut icon"
+      href="ASSETS/IMG/favicon.png"
+      type="image/x-icon"
+    />
+
+    <!-- =============== SCRIPTS ================ -->
+
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script src="ASSETS/JS/script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js"></script>
+  </head>
+
+  <!-- ================================================== -->
+  <!-- ---------------------- BODY  --------------------- -->
+  <!-- ================================================== -->
+
+  <body>
+    <!-- ======================================= -->
+    <!-- --------------- HEADER ---------------- -->
+    <!-- ======================================= -->
+
+    <header>
+      <div class="container divheader">
+        <div class="bandeau">
+          <div class="hiddenmobile">
+            <i class="icon-menu_bars iconnav"></i>
+          </div>
+          <a href="/FRONTEND/index.html" class="nav-link">
+            <div class="brand">
+              <img src="./ASSETS/IMG/logo.png" alt="Logo Trip Advisor" />
+            </div>
+          </a>
+          <nav class="nav">
+            <div class="navdiv disapearmobile">
+              <a href="/FRONTEND/table.html" class="nav-link">
+                <div class="nav-item">
+                  <i class="icon-pencil iconnav"></i>
+                  <p class="disapear">Avis</p>
+                </div>
+              </a>
+            </div>
+            <div class="navdiv disapearmobile">
+              <div class="nav-item">
+                <i class="icon-heart iconnav"></i>
+                <p class="disapear">Voyages</p>
+              </div>
+            </div>
+            <div class="navdiv disapearmobile">
+              <div class="nav-item">
+                <i class="icon-notification_bell iconnav"></i>
+                <p class="disapear">Alertes</p>
+              </div>
+            </div>
+            <div class="navdiv disapearmobile">
+              <div class="nav-item">
+                <button class="buttonnav">Connectez-vous</button>
+              </div>
+            </div>
+            <div class="hiddenmobile">
+              <i class="icon-search iconnav"></i>
+            </div>
+            <div class="navdiv">
+              <div class="nav-item">
+                <i class="icon-empty_cart iconnav"></i>
+                <p class="disapear">Panier</p>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- ======================================= -->
+    <!-- ---------------- MAIN ----------------- -->
+    <!-- ======================================= -->
+
+    <main>
+      <!-- ============= SECTION 1 - H1 ============== -->
+      <div class="container">
+        <section class="section1">
+          <h1>
+            <span class="red">Explorez </span><span class="black">Paris</span>
+          </h1>
+          <p class="ph1">
+            Les revenus influencent le choix des expériences présentées sur
+            cette page: <u>en savoir plus.</u>
+          </p>
+        </section>
+
+        <!-- ============= SECTION 2 - BUTTONS ============== -->
+
+        <section class="section2">
+          <div class="buttonmain">
+            <p class="pbuttonmain">Hôtels</p>
+            <i class="icon-hotels iconmainnav"></i>
+          </div>
+          <div class="buttonmain">
+            <p class="pbuttonmain">Locations de vacances</p>
+            <i class="icon-vacation_rentals iconmainnav"></i>
+          </div>
+          <div class="buttonmain">
+            <p class="pbuttonmain">Activités</p>
+            <i class="icon-attractions iconmainnav"></i>
+          </div>
+          <div class="buttonmain">
+            <p class="pbuttonmain">Restaurants</p>
+            <i class="icon-restaurants iconmainnav"></i>
+          </div>
+          <div class="buttonmain">
+            <p class="pbuttonmain">Forums de voyage</p>
+            <i class="icon-forums iconmainnav"></i>
+          </div>
+          <div class="buttonmain hidden">
+            <p class="pbuttonmain">Vols</p>
+            <i class="icon-flights iconmainnav"></i>
+          </div>
+          <div class="buttonmain hidden">
+            <p class="pbuttonmain">Croisières</p>
+            <i class="icon-cruises iconmainnav"></i>
+          </div>
+          <div class="buttonmain">
+            <p class="pbuttonmain">Plus</p>
+            <i class="icon-more_horizontal iconmainnav"></i>
+          </div>
+        </section>
+        <!-- ============= SECTION 3 - TABLE ============== -->
+        <section class="table-section3">
+          <div class="div-filtre">
+            <select id="filter">
+              <option value="all">Tous les pays</option>
+              <option value="France">France</option>
+              <option value="Espagne">Espagne</option>
+              <option value="Italie">Italie</option>
+              <option value="Allemagne">Allemagne</option>
+            </select>
+          </div>
+          <table id="data-table">
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Âge</th>
+                <th>Email</th>
+                <th>Ville</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </section>
+        <section id="table-section3" class="table-section3">
+          <form class="form-table" id="data-form">
+            <div class="div-form">
+              <input
+                class="input-table-style"
+                type="text"
+                id="nom"
+                placeholder="Nom"
+                required
+              />
+              <input
+                class="input-table-style"
+                type="number"
+                id="age"
+                placeholder="Âge"
+                required
+              />
+              <input
+                class="input-table-style"
+                type="email"
+                id="mail"
+                placeholder="Email"
+                required
+              />
+              <select class="input-table-style" id="pays" name="pays">
+                <option value="France">France</option>
+                <option value="Espagne">Espagne</option>
+                <option value="Italie">Italie</option>
+                <option value="Allemagne">Allemagne</option>
+              </select>
+            </div>
+            <button class="button-form" type="submit">Ajouter</button>
+          </form>
+          <button onclick="exportToExcel()">Exporter en Excel</button>
+          <button onclick="exportToPDF()">Exporter en PDF</button>
+        </section>
+      </div>
+    </main>
+    <!-- ======================================= -->
+    <!-- --------------- FOOTER ---------------- -->
+    <!-- ======================================= -->
+
+    <footer class="footer">
+      <div class="div-footer">
+        <img
+          id="easteregg"
+          src="./ASSETS/IMG/favicon-tripadvisor.svg"
+          alt="Tripadvisor"
+        />
+        <p class="p-section8">
+          Made at <span class="bold">Le Reacteur </span>by
+          <span class="bold">Nicolas Geneviève</span>
+        </p>
+      </div>
+    </footer>
+    <!-- ======================================= -->
+    <!-- --------------- MODAL ----------------- -->
+    <!-- ======================================= -->
+
+    <div class="modal-overlay display-none">
+      <div class="form-div">
+        <div>
+          <div class="cross"><i class="icon-times"></i></div>
+          <div class="form-title"><p>Formulaire de contact</p></div>
+          <form class="formulaire" id="contactForm">
+            <input
+              class="input-class"
+              type="text"
+              name="firstname"
+              id="firstname"
+              placeholder="Prénom"
+            />
+            <input
+              class="input-class"
+              type="text"
+              name="lastname"
+              id="lastname"
+              placeholder="Nom"
+            />
+            <input
+              class="input-class"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+            />
+            <textarea
+              class="input-class"
+              name="message"
+              id="message"
+              rows="5"
+              cols="50"
+              placeholder="Écrivez ici votre message..."
+            ></textarea>
+            <input
+              class="submit"
+              type="submit"
+              value="Envoyer le formulaire"
+              id="submit-btn"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+  </body>
+</html>
