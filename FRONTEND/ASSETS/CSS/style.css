@@ -761,6 +761,7 @@ h7 {
 
 table {
   width: 100%;
+  min-width: 600px;
   border-collapse: separate;
   margin: 20px 0;
   border-spacing: 5px 10px;
@@ -834,6 +835,7 @@ tbody tr:nth-child(odd) {
   padding: 10px;
   border-radius: 10px;
   cursor: pointer;
+  margin-bottom: 30px;
 }
 
 .cell-france {
@@ -962,6 +964,20 @@ tbody tr:nth-child(odd) {
   }
   .div-img-scroll-section7 {
     height: 300px;
+  }
+  .scroll {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+  }
+
+  .scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+
+  .input-table-style {
+    flex: 1 1 100%;
   }
 }
 
