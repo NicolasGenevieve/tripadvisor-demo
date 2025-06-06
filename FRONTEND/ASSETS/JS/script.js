@@ -1,6 +1,15 @@
 function exportToExcel() {
   const table = document.getElementById("data-table");
-  const wb = XLSX.utils.table_to_book(table, { sheet: "Feuille1" });
+  const clonedTable = table.cloneNode(true);
+
+  const theadRow = clonedTable.querySelector("thead tr");
+  if (theadRow) theadRow.removeChild(theadRow.lastElementChild);
+
+  clonedTable.querySelectorAll("tbody tr").forEach((tr) => {
+    tr.removeChild(tr.lastElementChild);
+  });
+
+  const wb = XLSX.utils.table_to_book(clonedTable, { sheet: "Feuille1" });
   XLSX.writeFile(wb, "tableau.xlsx");
 }
 
@@ -11,14 +20,14 @@ window.exportToPDF = async function () {
   const table = document.getElementById("data-table");
 
   const rows = Array.from(table.querySelectorAll("tbody tr")).map((row) =>
-    Array.from(row.querySelectorAll("td")).map((cell) =>
-      cell.textContent.trim()
-    )
+    Array.from(row.querySelectorAll("td"))
+      .slice(0, -1)
+      .map((cell) => cell.textContent.trim())
   );
 
-  const headers = Array.from(table.querySelectorAll("thead th")).map((th) =>
-    th.textContent.trim()
-  );
+  const headers = Array.from(table.querySelectorAll("thead th"))
+    .slice(0, -1)
+    .map((th) => th.textContent.trim());
 
   doc.autoTable({
     head: [headers],
@@ -63,7 +72,52 @@ window.exportToPDF = async function () {
   doc.save("tableau.pdf");
 };
 
+function updateSummaryBars() {
+  const rows = document.querySelectorAll("#data-table tbody tr");
+  const summary = {};
+
+  rows.forEach((row) => {
+    const country = row.querySelector("td:nth-child(4)")?.textContent.trim();
+    if (country) {
+      summary[country] = (summary[country] || 0) + 1;
+    }
+  });
+
+  const total = rows.length;
+  const container = document.getElementById("summary-bars");
+  container.innerHTML = ""; // reset
+
+  Object.entries(summary).forEach(([country, count]) => {
+    const percent = ((count / total) * 100).toFixed(1);
+
+    // Couleur selon pays
+    let color = "#666";
+    if (country === "France") color = "#0055ff";
+    if (country === "Espagne") color = "#ffd700";
+    if (country === "Italie") color = "#00aa50";
+    if (country === "Allemagne") color = "#ff0000";
+
+    const bar = document.createElement("div");
+    bar.classList.add("recap-bar");
+
+    bar.innerHTML = `
+      <div class="recap-label">${country} – ${count} personne(s) (${percent}%)</div>
+      <div class="progress-container">
+        <div class="progress-bar" style="width: ${percent}%; background-color: ${color};">
+          ${percent}%
+        </div>
+      </div>
+    `;
+
+    container.appendChild(bar);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  // loadTableFromAPI(); // ou localStorage
+  updateSummaryBars();
+  addDeleteListeners(); // 🆕 important ici aussi
+
   const buttonnav = document.querySelector(".buttonnav");
   const modal = document.querySelector(".modal-overlay");
   const body = document.querySelector("body");
@@ -159,9 +213,12 @@ document.addEventListener("DOMContentLoaded", () => {
     <td>${nom}</td>
         <td>${age}</td>
             <td>${mail}</td>
-                <td class="${countryClass}">${pays}</td>`;
+                <td class="${countryClass}">${pays}</td>
+                <td><button class="delete-btn">Supprimer</button></td>`;
     tableBody.appendChild(newRow);
     formTable.reset();
+    updateSummaryBars();
+    addDeleteListeners();
   });
 
   document.getElementById("filter").addEventListener("change", function () {
@@ -169,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const rows = document.querySelectorAll("#data-table tbody tr");
 
     rows.forEach((row) => {
-      const countryCell = row.querySelector("td:last-child");
+      const countryCell = row.querySelector("td:nth-child(4)");
       if (value === "all" || countryCell.textContent === value) {
         row.style.display = "";
       } else {
@@ -178,3 +235,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+function addDeleteListeners() {
+  const buttons = document.querySelectorAll(".delete-btn");
+  buttons.forEach((btn) => {
+    btn.onclick = function () {
+      const row = this.closest("tr");
+      row.remove();
+      updateSummaryBars();
+    };
+  });
+}

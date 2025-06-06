@@ -778,7 +778,7 @@ td {
   white-space: normal;
 }
 
-td:last-child {
+td:nth-child(4) {
   text-align: center;
   vertical-align: middle;
 }
@@ -853,6 +853,63 @@ tbody tr:nth-child(odd) {
 
 .cell-allemagne {
   background-color: #ff000030; /* rouge clair */
+}
+
+.div-container-recap {
+  display: flex;
+  justify-content: center;
+}
+
+.recap-container {
+  margin: 50px 0;
+  padding: 10px;
+  /* border-top: 1px solid #ccc; */
+  min-width: 600px;
+}
+
+.recap-bar {
+  margin-bottom: 10px;
+}
+
+.recap-label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.progress-container {
+  background-color: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  height: 20px;
+  margin-bottom: 30px;
+}
+
+.progress-bar {
+  height: 100%;
+  text-align: right;
+  padding-right: 8px;
+  color: white;
+  font-size: 10px;
+  line-height: 20px;
+}
+
+td:last-child {
+  padding: 0;
+}
+
+.delete-btn {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-btn:hover {
+  background-color: #cc0000;
 }
 
 /* ============================================================================ */
